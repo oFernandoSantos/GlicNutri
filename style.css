@@ -1,0 +1,564 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0000;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+}
+
+header {
+  background: #4d1dd1;
+  padding: 1.5em 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  color: #fff;
+  font-size: 2.4em;
+  margin: 0;
+  letter-spacing: 1.5px;
+}
+
+main {
+  padding: 2em 1em;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.0em;
+  width: 100%;
+  max-width: 320px;
+}
+
+.nav-buttons a {
+  width: 100%;
+  text-decoration: none;
+  
+}
+
+.nav-buttons button {
+  width: 100%;
+}
+
+button {
+  background: linear-gradient(135deg, #4d1dd1, #6b2bdc);
+  color: white;
+  border: none;
+  padding: 1.1em 1.2em;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 14px rgba(77, 29, 209, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  letter-spacing: 0.5px;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #3d17b3, #5e22c8);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(77, 29, 209, 0.4);
+}
+
+
+.logo {
+  max-width: 220px;
+  margin-top: 2.5em;
+  display: block;
+}
+
+footer {
+  background: #f9f9f9;
+  width: 100%;
+  text-align: center;
+  padding: 1em 0;
+  color: #888;
+  font-size: 0.9em;
+  border-top: 1px solid #eee;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-top: 1em;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 1em;
+  display: block;
+  color: #444;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1em;
+  margin-top: 0.5em;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5em;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+/* Botão menor para ações secundárias */
+.btn-voltar {
+  width: auto;
+  min-width: 240px;
+  max-width: 70px;
+  padding: 0.7em 1.2em;
+  font-size: 1em;
+  margin: 1em auto 0 auto; /* centraliza horizontalmente */
+  display: block;
+  text-align: center;
+  
+}
+
+.btn-assinatura {
+  background: linear-gradient(135deg, #04AA6D, #1bc886);
+  color: white;
+  padding: 1.1em;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 6px 14px rgba(4, 170, 109, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  letter-spacing: 0.5px;
+}
+
+.btn-assinatura:hover {
+  background: linear-gradient(135deg, #039e65, #16b179);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(4, 170, 109, 0.4);
+}
+
+
+.form-container {
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 1.2em 0.8em 0.8em 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1em;
+  outline: none;
+  transition: border 0.3s ease;
+  background: #fdfdfd;
+}
+
+.form-field input:focus {
+  border-color: #4d1dd1;
+}
+
+.form-field label {
+  position: absolute;
+  top: 1em;
+  left: 0.8em;
+  font-size: 1em;
+  color: #888;
+  pointer-events: none;
+  transition: 0.2s ease all;
+  background: white;
+  padding: 0 0.2em;
+}
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label {
+  top: -0.6em;
+  left: 0.6em;
+  font-size: 0.8em;
+  color: #4d1dd1;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1.5em;
+}
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1.5em;
+  width: 100%;
+}
+
+.form-buttons button,
+.form-buttons a {
+  width: 100%;
+  max-width: 500px;
+}
+
+.form-buttons a {
+  text-decoration: none;
+}
+
+.form-buttons button {
+  padding: 0.9em;
+  border-radius: 10px;
+}
+.form-container {
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 2em;
+}
+
+.form-field {
+  position: relative;
+  margin-bottom: 1.5em;
+  width: 100%;
+}
+
+.form-field input {
+  width: 100%;
+  padding: 1.2em 0.8em 0.8em 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1em;
+  background: #fdfdfd;
+  transition: border 0.3s ease;
+}
+
+.form-field input:focus {
+  border-color: #4d1dd1;
+  outline: none;
+}
+
+.form-field label {
+  position: absolute;
+  top: 1em;
+  left: 0.8em;
+  color: #888;
+  font-size: 1em;
+  background: white;
+  padding: 0 0.3em;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.form-field input:focus + label,
+.form-field input:not(:placeholder-shown) + label {
+  top: -0.6em;
+  left: 0.6em;
+  font-size: 0.8em;
+  color: #4d1dd1;
+}
+
+.resultado {
+  font-size: 0.95em;
+  color: #333;
+  margin-top: 0.5em;
+  background: #f9f9ff;
+  padding: 0.7em 1em;
+  border-radius: 10px;
+  border-left: 4px solid #4d1dd1;
+}
+.form-container button {
+  display: block;
+  margin: 0.2em auto 1.2em auto;
+  width: 100%;
+  max-width: 500px;
+  padding: 1em;
+  border-radius: 14px;
+}
+.form-field select {
+  width: 100%;
+  padding: 1.2em 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1em;
+  background: #fdfdfd;
+  color: #333;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23666' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+.form-field select:focus {
+  outline: none;
+  border-color: #4d1dd1;
+}
+.form-field textarea {
+  width: 100%;
+  padding: 1.2em 0.8em 0.8em 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1em;
+  background: #fdfdfd;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-field textarea:focus {
+  border-color: #4d1dd1;
+  outline: none;
+}
+
+.form-field textarea:focus + label,
+.form-field textarea:not(:placeholder-shown) + label {
+  top: -0.6em;
+  left: 0.6em;
+  font-size: 0.8em;
+  color: #4d1dd1;
+}
+.perfil-container {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2em;
+  max-width: 480px;
+  width: 100%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 2em;
+}
+
+.perfil-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.perfil-inicial {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #4d1dd1;
+  color: white;
+  font-size: 2em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5em;
+  box-shadow: 0 4px 10px rgba(77, 29, 209, 0.3);
+}
+
+.perfil-header h2 {
+  margin: 0;
+  color: #4d1dd1;
+  font-size: 1.6em;
+  text-align: center;
+}
+
+.perfil-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.perfil-item {
+  background:  #f4f0ff;
+  padding: 0.9em 1.2em;
+  border-radius: 12px;
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  border-left: 4px solid #4d1dd1;
+}
+
+.perfil-item span {
+  font-weight: 600;
+  color: #333;
+}
+
+body.dark .perfil-container {
+  background: #2c2c2c;
+  color: #eee;
+}
+
+body.dark .perfil-item {
+  background: #3c3c3c;
+  border-left-color: #7a5fff;
+}
+
+body.dark .perfil-inicial {
+  background: #7a5fff;
+}
+.educativo-container {
+  width: 100%;
+  max-width: 680px;
+  padding: 2em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  margin-top: 2em;
+}
+
+.educativo-titulo {
+  color: #4d1dd1;
+  text-align: center;
+  font-size: 1.6em;
+  margin-bottom: 0.5em;
+}
+
+.educativo-intro {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 2em;
+  color: #444;
+}
+
+.educativo-card {
+  background: #f4f0ff;
+  border-left: 5px solid #4d1dd1;
+  padding: 1em 1.2em;
+  margin-bottom: 1em;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(77, 29, 209, 0.06);
+}
+
+.educativo-card h3 {
+  margin-top: 0;
+  color: #4d1dd1;
+}
+
+.educativo-mais {
+  margin-top: 2em;
+  text-align: center;
+  font-weight: 500;
+  color: #555;
+}
+
+.educativo-videos {
+  margin-top: 3em;
+}
+
+.video-box {
+  margin-bottom: 2em;
+}
+
+.video-box iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .educativo-container {
+  background: #2c2c2c;
+  color: #eee;
+}
+
+body.dark .educativo-card {
+  background: #3c3c3c;
+  border-left-color: #7a5fff;
+}
+
+body.dark .educativo-card h3 {
+  color: #bfaaff;
+}
+
+body.dark .educativo-mais {
+  color: #ccc;
+}
+.header-voltar {
+  position: relative;
+  background: #4d1dd1;
+  padding: 1.2em 1em;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-voltar h1 {
+  color: #fff;
+  font-size: 1.8em;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.btn-voltar-header {
+  position: absolute;
+  left: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #4d1dd1;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.0em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-voltar-header:hover {
+  background: #e5dcff;
+  transform: translateY(-50%) scale(1.05);
+}
+

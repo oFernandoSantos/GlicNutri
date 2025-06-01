@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registrar Glicemia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="GlicNutri2.png" type="image/png" />
+</head>
+<body>
+  <header class="header-voltar">
+  <a href="glicnutri.html" class="btn-voltar-header" title="Voltar">
+    <
+  </a>
+    <h1>Registrar Glicemia</h1>
+  </header>
+
+  <main id="conteudo"></main>
+
+  <div class="nav-buttons">
+    <a href="glicnutri.html"><button>Voltar ao Menu</button></a>
+  </div>
+  <br>
+
+  <footer>
+     <p>&copy; 2025 GlicNutri • Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    function carregarPagina() {
+      const main = document.getElementById('conteudo');
+      main.innerHTML = `
+        <div class="form-container">
+          <div class="form-field">
+            <select id="tipoGlicemia" required>
+              <option value="" disabled selected>Defina o período da coleta glicêmica</option>
+			    <option value="Jejum">Jejum/Aleatório</option>
+              <option value="Antes">Antes da Refeição</option>
+              <option value="Depois">Depois da Refeição</option>
+            
+            </select>
+          </div>
+
+          <div class="form-field">
+            <input type="number" id="valorGlicemia" placeholder=" " required />
+            <label for="valorGlicemia">Valor da Glicemia (mg/dL)</label>
+          </div>
+
+          <button onclick="gerarRecomendacao()">Registrar</button>
+          <div id="recomendacaoUnica" class="resultado"></div>
+        </div>
+      `;
+    }
+
+    function gerarRecomendacao() {
+      const tipo = document.getElementById('tipoGlicemia').value;
+      const valor = parseFloat(document.getElementById('valorGlicemia').value);
+      const resposta = document.getElementById('recomendacaoUnica');
+
+      if (!tipo) {
+        resposta.textContent = 'Selecione o tipo de medição.';
+        return;
+      }
+
+      if (isNaN(valor)) {
+        resposta.textContent = 'Digite um valor válido.';
+        return;
+      }
+
+      let texto = '';
+      if (valor < 70) texto = 'Glicemia baixa! Consuma carboidrato de rápida absorção.';
+      else if (valor > 180) texto = 'Glicemia alta. Hidrate-se, caminhe e evite carboidratos simples.';
+      else texto = 'Glicemia estável. Continue com seu plano alimentar.';
+
+      resposta.textContent = texto;
+
+      const registro = {
+        tipo,
+        valor,
+        recomendacao: texto,
+        data: new Date().toLocaleString()
+      };
+
+      const registros = JSON.parse(localStorage.getItem('glicemias')) || [];
+      registros.push(registro);
+      localStorage.setItem('glicemias', JSON.stringify(registros));
+    }
+
+    window.onload = carregarPagina;
+  </script>
+</body>
+</html>

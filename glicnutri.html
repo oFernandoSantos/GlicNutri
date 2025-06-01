@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GlicNutri</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="GlicNutri2.png" type="image/png" />
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkMode = localStorage.getItem("darkMode") === "true";
+      document.body.classList.toggle("dark", darkMode);
+    });
+  </script>
+</head>
+<body>
+  <header class="header-voltar">
+  <a href="login.html" class="btn-voltar-header" title="Voltar">
+    <p>sair</p>
+  </a>
+    <h1>GlicNutri</h1>
+  </header>
+
+  <main>
+  <div class="nav-buttons">
+    <a href="RegistrarGlicose.html"><button>📊 Registrar Glicemia</button></a>
+    <a href="Libre.html"><button>📱 Glicemia via Libre</button></a>
+    <a href="RegistrarRefeição.html"><button>🍽 Registrar Refeição</button></a>
+    <a href="MeuDiario.html"><button>📘 Meu Diário</button></a>
+    <a href="MeuPerfil.html"><button>👤 Meu Perfil</button></a>
+    <a href="ConteudoEducativo.html"><button>🎓 Conteúdo Educativo</button></a>
+    <a href="SuporteChat.html"><button>💬 Suporte / Chat</button></a>
+    <a href="Libre.html">
+      <button class="btn-assinatura">
+        💳 GlicNutri Pro
+      </button></a>
+  </div>
+
+  <img src="GlicNutri2.png" alt="Logo GlicNutri" class="logo" />
+</main>
+
+
+  <footer>
+    <p>&copy; 2025 GlicNutri • Todos os direitos reservados</p>
+  </footer>
+
+ 
+  </script>
+</body>
+</html>

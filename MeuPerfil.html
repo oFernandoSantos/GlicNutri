@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil - GlicNutri</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="GlicNutri2.png" type="image/png" />
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkMode = localStorage.getItem("darkMode") === "true";
+      document.body.classList.toggle("dark", darkMode);
+
+      const usuario = JSON.parse(localStorage.getItem("usuarioGlicNutri"));
+      const container = document.getElementById("perfil-container");
+
+      if (!usuario) {
+        container.innerHTML = "<p>Usuário não encontrado.</p>";
+        return;
+      }
+
+     container.innerHTML = `
+  <div class="perfil-container">
+    <div class="perfil-header">
+      <div class="perfil-inicial">${usuario.nome.charAt(0)}</div>
+      <h2>${usuario.nome}</h2>
+    </div>
+    <div class="perfil-dados">
+      <div class="perfil-item"><span>Idade:</span> ${usuario.idade}</div>
+      <div class="perfil-item"><span>Tipo Sanguíneo:</span> ${usuario.sangue}</div>
+      <div class="perfil-item"><span>Tipo de Diabetes:</span> ${usuario.diabete}</div>
+      <div class="perfil-item"><span>Peso:</span> ${usuario.peso} kg</div>
+      <div class="perfil-item"><span>Altura:</span> ${usuario.altura} cm</div>
+      <div class="perfil-item"><span>Email:</span> ${usuario.email}</div>
+      <div class="perfil-item"><span>Telefone:</span> ${usuario.telefone}</div>
+      <div class="perfil-item"><span>CPF:</span> ${usuario.cpf}</div>
+    </div>
+  </div>
+`;
+
+    });
+  </script>
+  <style>
+    .perfil-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      padding: 2em;
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+    }
+    .perfil-card h2 {
+      text-align: center;
+      color: #4d1dd1;
+      margin-bottom: 1em;
+    }
+    .perfil-card ul {
+      list-style: none;
+      padding: 0;
+    }
+    .perfil-card li {
+      margin-bottom: 0.7em;
+      font-size: 1.05em;
+    }
+    .perfil-card li strong {
+      display: inline-block;
+      width: 160px;
+    }
+    body.dark .perfil-card {
+      background: #2c2c2c;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <header class="header-voltar">
+  <a href="glicnutri.html" class="btn-voltar-header" title="Voltar">
+    <
+  </a>
+  <h1>Meu Perfil</h1>
+</header>
+
+
+
+  <main>
+    <div id="perfil-container" class="nav-buttons" style="max-width: 100%;"></div>
+
+    <div class="nav-buttons" style="margin-top: 2em;">
+      
+      <a href="glicnutri.html"><button>Voltar ao Menu</button></a>
+    </div>
+  </main>
+
+  <footer>
+     <p>&copy; 2025 GlicNutri • Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+   
+  </script>
+</body>
+</html>

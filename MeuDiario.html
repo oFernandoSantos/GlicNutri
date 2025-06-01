@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Diário</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="GlicNutri2.png" type="image/png" />
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const darkMode = localStorage.getItem("darkMode") === "true";
+      document.body.classList.toggle("dark", darkMode);
+    });
+  </script>
+</head>
+<body>
+  <header class="header-voltar">
+  <a href="glicnutri.html" class="btn-voltar-header" title="Voltar">
+    <
+  </a>
+    <h1>Meu Diário</h1>
+  </header>
+
+  <main>
+    <div style="overflow-x: auto; width: 100%;">
+      <table id="tabelaDiario">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Valor / Descrição</th>
+            <th>Recomendação</th>
+            <th>Data/Hora</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Conteúdo inserido por JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    
+  </main>
+<div class="nav-buttons">
+<button onclick="limparDados()">Limpar Registros</button>
+      <a href="glicnutri.html"><button>Voltar ao Menu</button></a>
+    </div>
+	  <br>
+  <footer>
+     <p>&copy; 2025 GlicNutri • Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    const glicemias = JSON.parse(localStorage.getItem('glicemias')) || [];
+    const refeicoes = JSON.parse(localStorage.getItem('refeicoes')) || [];
+
+    const todosRegistros = [
+      ...glicemias.map(item => ({
+        tipo: item.tipo,
+        valor: item.valor + ' mg/dL',
+        recomendacao: item.recomendacao,
+        data: item.data
+      })),
+      ...refeicoes.map(item => ({
+        tipo: item.tipo,
+        valor: item.descricao,
+        recomendacao: '-',
+        data: item.data
+      }))
+    ];
+
+    todosRegistros.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+    const tbody = document.querySelector('#tabelaDiario tbody');
+    todosRegistros.forEach(reg => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${reg.tipo}</td>
+        <td>${reg.valor}</td>
+        <td>${reg.recomendacao}</td>
+        <td>${reg.data}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+
+    function limparDados() {
+      if (confirm('Deseja realmente apagar todos os registros?')) {
+        localStorage.removeItem('glicemias');
+        localStorage.removeItem('refeicoes');
+        location.reload();
+      }
+    }
+
+   
+  </script>
+</body>
+</html>
